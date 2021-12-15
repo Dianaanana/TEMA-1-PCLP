@@ -1,0 +1,78 @@
+// Copyright 2021-2022 313CA Ciocoiu Diana Iulia
+
+Programarea Calculatoarelor
+
+Tema #1
+
+----------------------------------------------------------------
+Problema 1 -- ninel.c
+
+-Am implementat o functie ce calculeaza media aritmetica primind ca parametrii suma si contorul.
+
+-Daca contorul este 0, media aritmetica va fi implicit 0 deoarece nu exista niciun numar. Daca foloseam formula media_aritmetica = suma / cnt atunci ar fi dat eroare (este imposibila impartirea la 0).
+
+-Exista 2 cazuri in alegerea lui n
+	a) daca n <= 2 atunci nu exista niciun copac special si programul afiseaza 0, 0.0000000, 0, 0.
+	b) daca n > 2 atunci incepe cautarea de copaci speciali.
+	
+-Citesc intial 2 inaltimi ( a, b ) apoi folosesc o bucla for pentru a citi pe rand valorile inaltimilor copacilor ( c ), iar in finalul acesteia trec valoarea lui b in a si pe a lui c in b pentru a citi un nr. nou in c.
+
+-Daca se respecta conditia de copac special (b > a && b > c) b fiind copacul din mijloc atunci se incrementeaza suma si contorul. Totodata se cauta si inaltimea maxima de pe o pozitie impara ( xmax_impar ) si inaltimea minima de pe o pozitie para ( xmin_par ).
+
+-xmin_par se initializeaza cu un numar ce depaseste intervalul de valori posibile ale inaltimii (0, 10^6), iar xmax_par se initializeaza cu 0.
+
+-Caz particular -- daca nu se gaseste min_par atunci faloarea lui se transforma in -1.
+
+-returnez suma, media aritmetica cu 7 zecimale, xmax_impar, xmin_par
+
+-------------------------------------------------------------------------
+Problema 2 -- vectsecv.c
+
+-Am implementat 2 functii ce imi returneaza numarul scris in ordinea descrescatoare a cifrelor ( n_descrescator ), respectiv in ordinea crescatoare a cifrelor (n_crescator)
+
+-n_descrescator -- aflu nr. de cifre al numarului dat ( l ) -- creez un vector cu cifrele numarului ce are lungimea egala cu nr. de cifre ( l ) -- sortez vectorul descrescator -- reconstruiesc nr din elementele vectorului
+
+-n_crescator -- aflu nr. de cifre al numarului dat ( l ) -- creez un vector cu cifrele numarului ce are lungimea egala cu nr. de cifre ( l ) -- sortez vectorul descrescator -- reconstruiesc nr din elementele vectorului cu conditia ca daca o cifra este 0 aceasta este exclusa.
+
+-Caz particular -- daca ultimul nr. are n_descrescator = n_crescator inseamna ca perioada va fi 0 si nr de scaderi va fi cnt - 1
+
+-----------------------------------------------------------------------------
+Problema 3 -- codeinvim.c
+
+-Am citit nr de materii, notele de la fiecare materie, respectiv creditele, punctajul minim
+
+-Am aflat nr. de puncte pe care il am la momentul actual ( P )
+
+-Am calculat diferenta dif dintre punctajul minim si punctajul actual, ce reprezinta nr. de puncte de care mai am nevoie 
+
+-Am creat un vector ce are ca elemente nr. de puncte pe care le as mai putea obtine dupa marire la fiecare materie
+
+-Am sortat  descrescator vectorul
+
+-Am scazut pe rand elemente din vector din diferenta astfel afland nr minim de materii la care e nevoie de marire ( m )
+
+-Caz particular -- daca m > n inseamna ca e nevoie de mai multe mariri decat materii deci problema nu are solutie si printeaza -1
+
+--------------------------------------------------------------------------------
+Problema 4 -- nomogram.c
+
+-Pentru rezolvarea acestei probleme este suficient sa verificam daca suma elementelor de pe fiecare linie/coloana ( sp ) coincide cu suma elementelor din conditiile de pe fiecare linie/coloana ( s_linii[i]/ s_coloane[i] ).
+
+-Citesc nr. de tablouri ( T ) de care depind datele de intrare
+
+-Am facut o bucla ce citeste toate datele de intrare si verifica daca o matrice este corecta sau nu pentru fiecare in parte
+
+-Citesc nr de linii si coloane ( n, m ) apoi pentru fiecare linie citesc nr de corpuri care se afla pe linie (nr_corpuri) apoi valoarea fiecarul corp timp in care imi ofrmez suma de pe acea linie ( s_linii[i] ) [ la fel si pentru coloane ]
+
+-Citesc puzzle-ul
+
+-Calculez suma elementelor de pe fiecare linie/coloana a puzzle-ului si o compar cu suma de pe linie/coloana calculata anterior. Daca acestea difera, B devine 0 ceea ce corespunde cu outputul 'Eroare'
+
+-La final verific daca toate sumele corespund (B = 1) si printez 'Corect', sau daca cel putin una nu corespunde (B = 0) si printez 'Eroare'
+
+-nr de tablouri scade cu o unitate si se repeta bucla pana se termina tablourile (puzzle-urile)
+
+---------------------------------------------------------------------------------
+
+
+
